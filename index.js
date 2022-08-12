@@ -4,7 +4,10 @@ const dbconnect=require('./dbConnect')
 app.use(express.json())
 const port=process.env.PORT || 5000;
 const userRoute=require('./routes/userRoute')
-
+const cors=require('cors');
+app.use(cors({
+    orgin:"*"
+}))
 app.use('/api/user/',userRoute)
 // app.get('/',(req,res)=>res.send('hello world'))
 app.get("/", (req, res) =>
